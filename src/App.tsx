@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <main>
-        <section className="flex justify-center items-center gap-10">
+        <section className="flex justify-center items-center gap-10 h-[500px]">
           {users.map((item) => (
             <UserCard key={item.id} {...item}/>
           ))}
