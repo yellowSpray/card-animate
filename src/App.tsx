@@ -24,8 +24,8 @@ function App() {
 
   return (
     <>
-      <main>
-        <section ref={eventCard} className="flex flex-row flex-wrap justify-center items-center gap-10">
+      <main className="xl:w-7xl lg:w-5xl md:w-full w-full">
+        <section ref={eventCard} className="grid xl:grid-cols-3 gap-7 p-20 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
           {users.map((item) => (
             <div key={item.id} className="cardAnimation">
               <UserCard {...item} />

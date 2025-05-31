@@ -1,7 +1,9 @@
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Avatar, AvatarImage } from "./ui/avatar";
-import { Plus, MessageCircle, ChevronDown, X } from "lucide-react";
+import { Plus, MessageCircle } from "lucide-react";
+import { TbBrandLinkedin } from "react-icons/tb";
+import { FiGithub } from "react-icons/fi";
 import { useState } from "react";
 
 interface UserCardProps {
@@ -30,7 +32,7 @@ export default function UserCard({ name, pseudo, avatar, fonction, entreprise, d
     <>
       <CardContent>
         <CardDescription>{description}</CardDescription>
-        <p className="text-xs text-gray-500 mt-3">{fonction} chez {entreprise}</p>
+        <p className="text-xs text-gray-500 mt-3">{entreprise}</p>
       </CardContent>
       <CardFooter className="flex justify-center gap-5">
         <Button size="lg">
@@ -45,14 +47,14 @@ export default function UserCard({ name, pseudo, avatar, fonction, entreprise, d
     </>
   )
 
-  const [display, setDisplay] = useState(false)
+  // const [display, setDisplay] = useState(false)
 
-  function isDisplay(){
-    setDisplay(!display)
-  }
+  // function isDisplay(){
+  //   setDisplay(!display)
+  // }
 
   return (
-    <Card className="w-[350px]">
+    <Card className="py-4 cursor-pointer hover:border-1 hover:border-gray-400">
       <CardHeader>
         <div className="flex flex-col items-end justify-end relative">
           <Avatar>
@@ -62,11 +64,15 @@ export default function UserCard({ name, pseudo, avatar, fonction, entreprise, d
         </div>
         <div className="w-full">
           <CardTitle>{name}</CardTitle>
-          <p className="text-sm text-gray-500 text-center pl-5 pt-2 w-50">{pseudo}</p>
+          <p className="text-sm text-gray-500 text-left pl-5 pt-2">{fonction}</p>
         </div>
-        <Button variant="ghost" size="icon" onClick={isDisplay}>{display ? <X /> : <ChevronDown />}</Button>
+        {/* <Button variant="ghost" size="icon" onClick={isDisplay}>{display ? <X /> : <ChevronDown />}</Button> */}
+        <div className="flex flex-row align-center">
+          <Button variant="ghost" size="icon"><TbBrandLinkedin /></Button>
+          <Button variant="ghost" size="icon"><FiGithub /></Button>
+        </div>
       </CardHeader>
-      {display && displayContent}
+      {/* {display && displayContent} */}
     </Card>
   );
 }
