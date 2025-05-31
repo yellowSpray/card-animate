@@ -12,6 +12,7 @@ interface UserCardProps {
   entreprise: string;
   description: string;
   connect: boolean;
+  className?: string;
 }
 
 function isConnected({connect}: { connect: boolean}){
